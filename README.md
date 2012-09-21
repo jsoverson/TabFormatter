@@ -8,14 +8,23 @@ and replaces them with any arbitrary string.
 Not elegant, purely useful
 
 ## Usage
-`TabFormatter.format(string, numChars, replacementString || ' ', prefix || '', suffix || '')`
+```
+TabFormatter.format(
+  string,
+  numChars,
+  replacementString || ' ',
+  replacementStringWidth || 1,
+  prefix || '',
+  suffix || ''
+);
+```
 
 ```
 TabFormatter.format("\tvar b;\t//Hi!", 4);
 // -> "    var b;  //Hi!"
-TabFormatter.format("\tvar b;\t//Hi!", 4, '&nbsp;');
+TabFormatter.format("\tvar b;\t//Hi!", 4, '&nbsp;', 1);
 // -> "&nbsp;&nbsp;&nbsp;&nbsp;var b;&nbsp;&nbsp;//Hi!"
-TabFormatter.format("\tvar b;\t//Hi!", 4, '&nbsp;','<span>','</span>');
+TabFormatter.format("\tvar b;\t//Hi!", 4, '&nbsp;', 1, '<span>','</span>');
 // -> "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>var b;<span>&nbsp;&nbsp;</span>//Hi!"
 ```
 

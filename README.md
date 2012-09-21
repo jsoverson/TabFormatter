@@ -1,38 +1,30 @@
-grunt-jasmine-runner-example
+TabFormatter
 ============================
 
-[![Build Status](https://secure.travis-ci.org/jsoverson/grunt-jasmine-runner-example.png)](http://travis-ci.org/jsoverson/grunt-jasmine-runner-example)
+A simple utility method that strips
+out tab characters from multi line strings
+and replaces them with any arbitrary string.
 
-Example setup for grunt-jasmine-runner.
+Not elegant, purely useful
 
-Browse the source for an example of how to set up your tests to be run via grunt-jasmine-runner.
+## Usage
+`TabFormatter.format(string, numChars, replacementString || ' ', prefix || '', suffix || '')`
 
-The application here is the Jasmine example application. The only changes made were jshint comments to allow the linter to pass.
+```
+TabFormatter.format("\tvar b;\t//Hi!", 4);
+// -> "    var b;  //Hi!"
+TabFormatter.format("\tvar b;\t//Hi!", 4, '&nbsp;');
+// -> "&nbsp;&nbsp;&nbsp;&nbsp;var b;&nbsp;&nbsp;//Hi!"
+TabFormatter.format("\tvar b;\t//Hi!", 4, '&nbsp;','<span>','</span>');
+// -> "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>var b;<span>&nbsp;&nbsp;</span>//Hi!"
+```
 
-Clone this repo and then run `npm install` to install grunt-jasmine-runner
+### Why?
 
-## Running tests headlessly
-
-`grunt jasmine`
-
-Or to run the default tasks (lint + jasmine) :
-
-`grunt`
-
-## Running tests in a browser
-
-`grunt jasmine-server`
-
-### PhantomJS
-
-This plugin requires phantomjs to run tests headlessly. Get it at [phantomjs.org](http://phantomjs.org/)
-
-### License
-
-The example application source is copyright Pivotal Labs and licensed under the MIT license.
-
-All other configuration code is public domain
+Wanted to write a blog post about tabs v spaces
+and replacing tabs turned out to be more than the
+single liner I hoped. So unit tests!
 
 ### Author
 
-All code not coming from Pivotal Labs was written by Jarrod Overson
+Jarrod Overson - [jarrodoverson.com](http://jarrodoverson.com)

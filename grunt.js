@@ -13,6 +13,9 @@ module.exports = function(grunt) {
       src : 'src/**/*.js',
       specs : 'spec/**/*.js'
     },
+    min : {
+      'TabFormatter.min.js' : 'src/api.js'
+    },
     jshint: {
       options: {
         curly: true,
